@@ -1,17 +1,17 @@
 class Sueldo:
     @staticmethod
-    def Preguntar_Horas(horas):
+    def Preguntar_Horas():
         print(f"Ingrese las horas trabajadas: ")
         return float(input())
     
     @staticmethod
-    def Pago_Horas(pago):
+    def Pago_Horas():
         print(f"Ingrese pago por hora en $: ")
         return float(input())
     
     
     @staticmethod
-    def Retencion_fuente(retencion):
+    def Retencion_fuente():
         print(f"Ingrese el porcentaje % de retención: ")
         return float(input())
     
@@ -34,9 +34,9 @@ class Sueldo:
         print(f"El sueldo neto es: {sueldo_neto}")
 
 def main():
-    horas = Sueldo.Preguntar_Horas(0)
-    pago = Sueldo.Pago_Horas(0)
-    retencion = Sueldo.Retencion_fuente(0)
+    horas = Sueldo.Preguntar_Horas()
+    pago = Sueldo.Pago_Horas()
+    retencion = Sueldo.Retencion_fuente()
     
     sueldo_bruto = Sueldo.Calcular_sueldo_bruto(horas, pago)
     retencion_valor = Sueldo.Calcular_retencion(sueldo_bruto, retencion)

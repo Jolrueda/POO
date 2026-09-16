@@ -1,4 +1,4 @@
-class Operaciones:
+class SquareandCube:
     @staticmethod
     def preguntar_Numero():
         print(f"Ingrese el inicial: ")
@@ -17,10 +17,10 @@ class Operaciones:
     
 
 def main():
-   numero = Operaciones.preguntar_Numero()
-   cuadrado = Operaciones.Numero_cuadrado(numero)
-   cubo = Operaciones.Numero_cubo(numero)
-   Operaciones.Printar_resultados(numero, cuadrado, cubo)
+   numero = SquareandCube.preguntar_Numero()
+   cuadrado = SquareandCube.Numero_cuadrado(numero)
+   cubo = SquareandCube.Numero_cubo(numero)
+   SquareandCube.Printar_resultados(numero, cuadrado, cubo)
 
 
 if __name__ == "__main__":
