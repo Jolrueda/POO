@@ -89,24 +89,35 @@ class VentanaCilindro:
     def __init__(self, root):
         self.root = root
         self.root.title("Cilindro")
-        self.root.geometry("260x200") 
+        self.root.geometry("400x200") 
         self.root.resizable(False, False)
         self.inicio()
 
     def inicio(self):
         tk.Label(self.root, text="Radio (cms):", anchor="w").place(x=20, y=20, width=100, height=23)
         self.campo_radio = tk.Entry(self.root)
-        self.campo_radio.place(x=100, y=20, width=135, height=23)
+        self.campo_radio.place(x=100, y=20, width=110, height=23)
 
         tk.Label(self.root, text="Altura (cms):", anchor="w").place(x=20, y=50, width=100, height=23)
         self.campo_altura = tk.Entry(self.root)
-        self.campo_altura.place(x=100, y=50, width=135, height=23)
+        self.campo_altura.place(x=100, y=50, width=110, height=23)
 
-        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=100, y=80, width=135, height=23)
+        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=100, y=80, width=110, height=23)
+        
         self.lbl_volumen = tk.Label(self.root, text="Volumen (cm3):", anchor="w")
         self.lbl_volumen.place(x=20, y=110, width=240, height=23)
+        
         self.lbl_superficie = tk.Label(self.root, text="Superficie (cm2):", anchor="w")
         self.lbl_superficie.place(x=20, y=140, width=240, height=23)
+
+        try:
+            img_original = tk.PhotoImage(file="Img/Cilindro.png") 
+            self.img = img_original.subsample(6, 6)
+            lbl_imagen = tk.Label(self.root, image=self.img)
+            lbl_imagen.image = self.img  
+            lbl_imagen.place(x=240, y=20)
+        except Exception:
+            tk.Label(self.root, text="[Sin imagen]").place(x=240, y=20)
         
     def calcular_accion(self):
         try:
@@ -120,20 +131,32 @@ class VentanaEsfera:
     def __init__(self, root):
         self.root = root
         self.root.title("Esfera")
-        self.root.geometry("260x200")
+        self.root.geometry("400x200")
         self.root.resizable(False, False)
         self.inicio()
 
     def inicio(self):
         tk.Label(self.root, text="Radio (cms):", anchor="w").place(x=20, y=20, width=100, height=23)
         self.campo_radio = tk.Entry(self.root)
-        self.campo_radio.place(x=100, y=20, width=135, height=23)
+        self.campo_radio.place(x=100, y=20, width=110, height=23)
 
-        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=100, y=50, width=135, height=23)
+        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=100, y=50, width=110, height=23)
+        
         self.lbl_volumen = tk.Label(self.root, text="Volumen (cm3):", anchor="w")
         self.lbl_volumen.place(x=20, y=90, width=240, height=23)
+        
         self.lbl_superficie = tk.Label(self.root, text="Superficie (cm2):", anchor="w")
         self.lbl_superficie.place(x=20, y=120, width=240, height=23)
+
+        # Cargar y colocar imagen
+        try:
+            img_original = tk.PhotoImage(file="Img/Esfera.png") 
+            self.img = img_original.subsample(2, 2)
+            lbl_imagen = tk.Label(self.root, image=self.img)
+            lbl_imagen.image = self.img  
+            lbl_imagen.place(x=240, y=20)
+        except Exception:
+            tk.Label(self.root, text="[Sin imagen]").place(x=240, y=20)
         
     def calcular_accion(self):
         try:
@@ -147,28 +170,39 @@ class VentanaPiramide:
     def __init__(self, root):
         self.root = root
         self.root.title("Pirámide")
-        self.root.geometry("280x220")
+        self.root.geometry("400x220")
         self.root.resizable(False, False)
         self.inicio()
 
     def inicio(self):
         tk.Label(self.root, text="Base (cms):", anchor="w").place(x=20, y=20, width=100, height=23)
         self.campo_base = tk.Entry(self.root)
-        self.campo_base.place(x=120, y=20, width=135, height=23)
+        self.campo_base.place(x=120, y=20, width=110, height=23)
 
         tk.Label(self.root, text="Altura (cms):", anchor="w").place(x=20, y=50, width=100, height=23)
         self.campo_altura = tk.Entry(self.root)
-        self.campo_altura.place(x=120, y=50, width=135, height=23)
+        self.campo_altura.place(x=120, y=50, width=110, height=23)
 
         tk.Label(self.root, text="Apotema:", anchor="w").place(x=20, y=80, width=100, height=23)
         self.campo_apotema = tk.Entry(self.root)
-        self.campo_apotema.place(x=120, y=80, width=135, height=23)
+        self.campo_apotema.place(x=120, y=80, width=110, height=23)
 
-        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=120, y=110, width=135, height=23)
+        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=120, y=110, width=110, height=23)
+        
         self.lbl_volumen = tk.Label(self.root, text="Volumen (cm3):", anchor="w")
         self.lbl_volumen.place(x=20, y=140, width=240, height=23)
+        
         self.lbl_superficie = tk.Label(self.root, text="Superficie (cm2):", anchor="w")
         self.lbl_superficie.place(x=20, y=170, width=240, height=23)
+
+        try:
+            img_original = tk.PhotoImage(file="Img/Piramide.png") 
+            self.img = img_original.subsample(4, 4)
+            lbl_imagen = tk.Label(self.root, image=self.img)
+            lbl_imagen.image = self.img  
+            lbl_imagen.place(x=250, y=20)
+        except Exception:
+            tk.Label(self.root, text="[Sin imagen]").place(x=250, y=20)
 
     def calcular_accion(self):
         try:
@@ -182,20 +216,31 @@ class VentanaCubo:
     def __init__(self, root):
         self.root = root
         self.root.title("Cubo")
-        self.root.geometry("260x200")
+        self.root.geometry("400x200")
         self.root.resizable(False, False)
         self.inicio()
 
     def inicio(self):
         tk.Label(self.root, text="Lado (cms):", anchor="w").place(x=20, y=20, width=100, height=23)
         self.campo_lado = tk.Entry(self.root)
-        self.campo_lado.place(x=100, y=20, width=135, height=23)
+        self.campo_lado.place(x=100, y=20, width=110, height=23)
 
-        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=100, y=50, width=135, height=23)
+        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=100, y=50, width=110, height=23)
+        
         self.lbl_volumen = tk.Label(self.root, text="Volumen (cm3):", anchor="w")
         self.lbl_volumen.place(x=20, y=90, width=240, height=23)
+        
         self.lbl_superficie = tk.Label(self.root, text="Superficie (cm2):", anchor="w")
         self.lbl_superficie.place(x=20, y=120, width=240, height=23)
+
+        try:
+            img_original = tk.PhotoImage(file="Img/Cubo.png")
+            self.img = img_original.subsample(3, 3)
+            lbl_imagen = tk.Label(self.root, image=self.img)
+            lbl_imagen.image = self.img  
+            lbl_imagen.place(x=240, y=20)
+        except Exception:
+            tk.Label(self.root, text="[Sin imagen]").place(x=240, y=20)
         
     def calcular_accion(self):
         try:
@@ -209,28 +254,39 @@ class VentanaPrisma:
     def __init__(self, root):
         self.root = root
         self.root.title("Prisma Rectangular")
-        self.root.geometry("280x210")
+        self.root.geometry("400x210")
         self.root.resizable(False, False)
         self.inicio()
 
     def inicio(self):
         tk.Label(self.root, text="Largo (cms):", anchor="w").place(x=20, y=20, width=100, height=23)
         self.campo_largo = tk.Entry(self.root)
-        self.campo_largo.place(x=120, y=20, width=135, height=23)
+        self.campo_largo.place(x=120, y=20, width=110, height=23)
 
         tk.Label(self.root, text="Ancho (cms):", anchor="w").place(x=20, y=50, width=100, height=23)
         self.campo_ancho = tk.Entry(self.root)
-        self.campo_ancho.place(x=120, y=50, width=135, height=23)
+        self.campo_ancho.place(x=120, y=50, width=110, height=23)
 
         tk.Label(self.root, text="Altura (cms):", anchor="w").place(x=20, y=80, width=100, height=23)
         self.campo_altura = tk.Entry(self.root)
-        self.campo_altura.place(x=120, y=80, width=135, height=23)
+        self.campo_altura.place(x=120, y=80, width=110, height=23)
 
-        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=120, y=110, width=135, height=23)
+        tk.Button(self.root, text="Calcular", command=self.calcular_accion).place(x=120, y=110, width=110, height=23)
+        
         self.lbl_volumen = tk.Label(self.root, text="Volumen (cm3):", anchor="w")
         self.lbl_volumen.place(x=20, y=140, width=240, height=23)
+        
         self.lbl_superficie = tk.Label(self.root, text="Superficie (cm2):", anchor="w")
         self.lbl_superficie.place(x=20, y=170, width=240, height=23)
+
+        try:
+            img_original = tk.PhotoImage(file="Img/Prisma.png")
+            self.img = img_original.subsample(3, 3)
+            lbl_imagen = tk.Label(self.root, image=self.img)
+            lbl_imagen.image = self.img  
+            lbl_imagen.place(x=250, y=20)
+        except Exception:
+            tk.Label(self.root, text="[Sin imagen]").place(x=250, y=20)
         
     def calcular_accion(self):
         try:
