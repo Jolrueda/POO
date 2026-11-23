@@ -4,8 +4,6 @@ from tkinter import ttk, messagebox
 
 
 class CalculosNumericos:
-    """Clase lógica con manejo explícito de excepciones."""
-
     @staticmethod
     def calcular_logaritmo_neperiano(valor):
         if not isinstance(valor, (int, float)) or isinstance(valor, bool):
@@ -87,17 +85,15 @@ class AppCalculadora(tk.Tk):
         self.geometry("450x400")
         self.resizable(False, False)
 
-        # Crear Notebook (Pestañas)
         self.notebook = ttk.Notebook(self)
         self.notebook.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # Inicializar pestañas
         self._crear_pestana_log_raiz()
         self._crear_pestana_recta()
         self._crear_pestana_cuadratica()
         self._crear_pestana_base()
 
-    # --- PESTAÑA 1: Logaritmo y Raíz ---
+
     def _crear_pestana_log_raiz(self):
         frame = ttk.Frame(self.notebook)
         self.notebook.add(frame, text="Log / Raíz")
@@ -130,7 +126,6 @@ class AppCalculadora(tk.Tk):
         ttk.Button(btn_box, text="Logaritmo", command=ejecutar_log).pack(side="left", padx=5)
         ttk.Button(btn_box, text="Raíz Cuadrada", command=ejecutar_raiz).pack(side="left", padx=5)
 
-    # --- PESTAÑA 2: Operaciones con Rectas ---
     def _crear_pestana_recta(self):
         frame = ttk.Frame(self.notebook)
         self.notebook.add(frame, text="Geometría Recta")
@@ -179,7 +174,6 @@ class AppCalculadora(tk.Tk):
         ttk.Button(btn_box, text="Pendiente", command=ejecutar_pendiente).pack(side="left", padx=5)
         ttk.Button(btn_box, text="Punto Medio", command=ejecutar_punto_medio).pack(side="left", padx=5)
 
-    # --- PESTAÑA 3: Ecuación Cuadrática ---
     def _crear_pestana_cuadratica(self):
         frame = ttk.Frame(self.notebook)
         self.notebook.add(frame, text="Cuadrática")
@@ -220,7 +214,6 @@ class AppCalculadora(tk.Tk):
 
         ttk.Button(frame, text="Calcular Raíces", command=ejecutar_cuadratica).pack(pady=10)
 
-    # --- PESTAÑA 4: Conversión de Base ---
     def _crear_pestana_base(self):
         frame = ttk.Frame(self.notebook)
         self.notebook.add(frame, text="Cambio de Base")

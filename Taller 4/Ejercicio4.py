@@ -2,7 +2,6 @@ import string
 import tkinter as tk
 from tkinter import messagebox
 
-
 class ValidadorContrasena:
     @staticmethod
     def validar_contrasena(contrasena: str, confirmacion: str) -> None:
