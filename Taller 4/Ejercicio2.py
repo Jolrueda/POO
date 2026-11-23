@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 class Vendedor:
-    """Modela un vendedor y valida su edad."""
     def __init__(self, nombre: str, apellidos: str):
         self.nombre = nombre
         self.apellidos = apellidos
@@ -18,7 +17,6 @@ class Vendedor:
 
 
 class ObjetoConExcepcion:
-    """Clase cuyo constructor valida los datos y lanza una excepción si es inválido."""
     def __init__(self, parametro: str):
         if not parametro or parametro.strip() == "":
             raise ValueError("[Excepción en Constructor]: El parámetro no puede estar vacío.")
@@ -28,7 +26,6 @@ class ObjetoConExcepcion:
 
 
 class TablaASCII:
-    """Modela una tabla ASCII con métodos get y set gestionando excepciones."""
     def __init__(self):
         self.tabla = {chr(i): i for i in range(128)}
 
@@ -46,8 +43,6 @@ class TablaASCII:
         if not (0 <= numero <= 255):
             raise ValueError("El número ASCII debe estar en el rango de 0 a 255.")
         self.tabla[simbolo] = numero
-
-
 class AplicacionTaller(tk.Tk):
     def __init__(self):
         super().__init__()
