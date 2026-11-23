@@ -148,7 +148,6 @@ class VentanaEsfera:
         self.lbl_superficie = tk.Label(self.root, text="Superficie (cm2):", anchor="w")
         self.lbl_superficie.place(x=20, y=120, width=240, height=23)
 
-        # Cargar y colocar imagen
         try:
             img_original = tk.PhotoImage(file="Img/Esfera.png") 
             self.img = img_original.subsample(2, 2)
@@ -163,6 +162,7 @@ class VentanaEsfera:
             esfera = Esfera(float(self.campo_radio.get()))
             self.lbl_volumen.config(text=f"Volumen (cm3): {esfera.get_volumen():.2f}")
             self.lbl_superficie.config(text=f"Superficie (cm2): {esfera.get_superficie():.2f}")
+            
         except ValueError:
             messagebox.showerror("Error", "Campo nulo o formato incorrecto", parent=self.root)
 
